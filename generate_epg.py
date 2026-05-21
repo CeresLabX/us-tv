@@ -64,12 +64,75 @@ def parse_m3u(content):
             clean_name = re.sub(r'\s*\[[^\]]+\]\s*', '', clean_name).strip()
 
             # Extract language from tvg-id suffix (e.g. "EWTN.us@Spanish" -> "Spanish")
+            LANGUAGE_CODES = {
+                'english', 'en', 'espanol', 'spanish', 'es',
+                'french', 'fr', 'francais',
+                'chinese', 'zh', 'mandarin',
+                'korean', 'ko', 'korean',
+                'arabic', 'ar',
+                'hindi', 'hi',
+                'portuguese', 'pt', 'brasil', 'brazilian',
+                'german', 'de', 'deutsch',
+                'italian', 'it',
+                'japanese', 'ja', 'jp',
+                'russian', 'ru',
+                'vietnamese', 'vi',
+                'tagalog', 'filipino', 'tl',
+                'polish', 'pl',
+                'dutch', 'nl',
+                'turkish', 'tr',
+                'greek', 'el',
+                'hebrew', 'he',
+                'persian', 'fa', 'farsi',
+                'urdu',
+                'bengali', 'bn',
+                'malayalam', 'ml',
+                'tamil', 'ta',
+                'telugu', 'te',
+                'punjabi', 'pa',
+                'gujarati', 'gu',
+                'marathi', 'mr',
+                'nepali', 'ne',
+            }
             language = ''
             at_idx = tvg_id.rfind('@')
             if at_idx != -1:
-                lang_candidate = tvg_id[at_idx+1:]
-                if lang_candidate not in ('SD', 'HD', 'US'):
-                    language = lang_candidate
+                lang_candidate = tvg_id[at_idx+1:].lower()
+                if lang_candidate in LANGUAGE_CODES:
+                    # Capitalize properly
+                    language = lang_candidate.title()
+                    if language == 'Es': language = 'Spanish'
+                    elif language == 'Zh': language = 'Chinese'
+                    elif language == 'Ko': language = 'Korean'
+                    elif language == 'Ar': language = 'Arabic'
+                    elif language == 'Hi': language = 'Hindi'
+                    elif language == 'Pt': language = 'Portuguese'
+                    elif language == 'De': language = 'German'
+                    elif language == 'It': language = 'Italian'
+                    elif language == 'Ja': language = 'Japanese'
+                    elif language == 'Ru': language = 'Russian'
+                    elif language == 'Vi': language = 'Vietnamese'
+                    elif language == 'Tl': language = 'Tagalog'
+                    elif language == 'Pl': language = 'Polish'
+                    elif language == 'Nl': language = 'Dutch'
+                    elif language == 'Tr': language = 'Turkish'
+                    elif language == 'El': language = 'Greek'
+                    elif language == 'He': language = 'Hebrew'
+                    elif language == 'Fa': language = 'Persian'
+                    elif language == 'Bn': language = 'Bengali'
+                    elif language == 'Ml': language = 'Malayalam'
+                    elif language == 'Ta': language = 'Tamil'
+                    elif language == 'Te': language = 'Telugu'
+                    elif language == 'Pa': language = 'Punjabi'
+                    elif language == 'Gu': language = 'Gujarati'
+                    elif language == 'Mr': language = 'Marathi'
+                    elif language == 'Ne': language = 'Nepali'
+                    elif language == 'Espanol': language = 'Spanish'
+                    elif language == 'Francais': language = 'French'
+                    elif language == 'Deutsch': language = 'German'
+                    elif language == 'Brasileiro': language = 'Portuguese'
+                    elif language == 'Farsi': language = 'Persian'
+                    elif language == 'Filipino': language = 'Tagalog'
 
             if tvg_id and clean_name:
                 channels.append({
