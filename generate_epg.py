@@ -59,10 +59,23 @@ def parse_m3u(content):
             if j < len(lines):
                 url = lines[j].strip()
             
-            if tvg_id and channel_name:
+            # Strip resolution (720p), (1080p), etc. and bracketed tags like [Geo-blocked], [Not 24/7]
+            clean_name = re.sub(r'\s*\(\d{3,4}[ip]\)\s*', '', channel_name)
+            clean_name = re.sub(r'\s*\[[^\]]+\]\s*', '', clean_name).strip()
+
+            # Extract language from tvg-id suffix (e.g. "EWTN.us@Spanish" -> "Spanish")
+            language = ''
+            at_idx = tvg_id.rfind('@')
+            if at_idx != -1:
+                lang_candidate = tvg_id[at_idx+1:]
+                if lang_candidate not in ('SD', 'HD', 'US'):
+                    language = lang_candidate
+
+            if tvg_id and clean_name:
                 channels.append({
                     'id': tvg_id,
-                    'name': channel_name,
+                    'name': clean_name,
+                    'language': language,
                     'logo': tvg_logo,
                     'category': group_title,
                     'url': url
@@ -94,9 +107,13 @@ def generate_epg(channels):
         channel_el.set('id', ch['id'])
         
         display_name = ET.SubElement(channel_el, 'display-name')
-        display_name.set('lang', 'en')
+        display_name.set('lang', ch.get('language', 'en'))
         display_name.text = ch['name']
-        
+
+        if ch.get('language'):
+            lang_el = ET.SubElement(channel_el, 'lang')
+            lang_el.text = ch['language']
+
         if ch['logo']:
             icon = ET.SubElement(channel_el, 'icon')
             icon.set('src', ch['logo'])
@@ -106,12 +123,24 @@ def generate_epg(channels):
             category.set('lang', 'en')
             category.text = ch['category']
     
-    # Add placeholder programmes (4 x 3-hour blocks = 12 hrs coverage)
+    # 48 hrs of programmes: 16 x 3-hour blocks, rotating through content types
     programme_blocks = [
-        ("Live Stream", "Live broadcast programming"),
-        ("News & Updates", "Current news and updates"),
-        ("Entertainment", "Various entertainment content"),
-        ("Live Stream", "Live broadcast programming"),
+        ("Live Broadcast", "Live programming stream"),
+        ("Morning Edition", "News and current events"),
+        ("Midday Entertainment", "Variety and entertainment content"),
+        ("Afternoon Programming", "General programming"),
+        ("Evening Prime", "Prime time entertainment"),
+        ("Late Night", "Late night programming"),
+        ("Overnight Re-run", "Archived programming replay"),
+        ("Early Morning", "Early morning programming"),
+        ("Live Broadcast", "Live programming stream"),
+        ("Morning Edition", "News and current events"),
+        ("Midday Entertainment", "Variety and entertainment content"),
+        ("Afternoon Programming", "General programming"),
+        ("Evening Prime", "Prime time entertainment"),
+        ("Late Night", "Late night programming"),
+        ("Overnight Re-run", "Archived programming replay"),
+        ("Early Morning", "Early morning programming"),
     ]
     
     for ch in channels:
@@ -124,12 +153,13 @@ def generate_epg(channels):
             prog.set('start', block_start.strftime('%Y%m%d%H%M%S') + ' +0000')
             prog.set('stop', block_end.strftime('%Y%m%d%H%M%S') + ' +0000')
             
+            prog_lang = ch.get('language', 'en')
             title_el = ET.SubElement(prog, 'title')
-            title_el.set('lang', 'en')
+            title_el.set('lang', prog_lang)
             title_el.text = f"{ch['name']} - {title}"
-            
+
             desc_el = ET.SubElement(prog, 'desc')
-            desc_el.set('lang', 'en')
+            desc_el.set('lang', prog_lang)
             desc_el.text = f"{ch['category']} | {desc}" if ch['category'] else desc
             
             category_el = ET.SubElement(prog, 'category')
