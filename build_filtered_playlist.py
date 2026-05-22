@@ -1,77 +1,35 @@
 #!/usr/bin/env python3
 """
-Multi-source US IPTV builder.
-Sources: iptv-org US + iptv-org English + Free-TV/IPTV
-With stream validation (parallel), URL dedup, group consolidation.
-
-Free-TV channels only accepted if:
-  - Channel group is a recognized KEEP group (News, Sports, etc.)
-  - OR tvg-id has @English suffix
-Otherwise rejected (prevents non-English country-channels from leaking in).
+iptv-org US only — no validation, English-language channels.
+Source: https://iptv-org.github.io/iptv/countries/us.m3u
 """
-import re, urllib.request, concurrent.futures
+import re, urllib.request
 import xml.etree.ElementTree as ET
 from datetime import datetime, timedelta
 from collections import Counter
 
-SOURCES = [
-    {"name": "iptv-org US",     "url": "https://iptv-org.github.io/iptv/countries/us.m3u"},
-    {"name": "iptv-org English","url": "https://iptv-org.github.io/iptv/languages/eng.m3u"},
-    {"name": "Free-TV",         "url": "https://raw.githubusercontent.com/Free-TV/IPTV/master/playlist.m3u8"},
-]
+SOURCE_URL = "https://iptv-org.github.io/iptv/countries/us.m3u"
 OUTPUT_PLAYLIST = "playlist.m3u"
 OUTPUT_EPG      = "epg.xml"
-MAX_WORKERS      = 32
 
-VOD_GROUPS = {
-    'pluto tv':'Pluto TV','plex':'Plex','roku channel':'Roku Channel',
-    'samsung tv plus':'Samsung TV Plus','tubi':'Tubi',
-    'pbs':'PBS','pbs kids':'PBS Kids',
-}
 KEEP_GROUPS = {
     'general','local news','sports','entertainment','movies','series','news','kids','religious',
     'lifestyle','education','music','documentary','comedy','culture','business','outdoor',
     'pluto tv','plex','roku channel','samsung tv plus','tubi','pbs','pbs kids',
-}
-REJECT_GROUPS = {
-    'auto','cooking','travel','shop','relax','science','weather','animation','family',
-    'classic','legislative',
-    'vod movies (en)','vod movies (es)','vod movies (fr)','vod movies (it)','vod movies (de)',
-    'vod movies (pt)','vod movies (ru)','vod movies (kr)','vod movies (cn)','vod movies (jp)',
-    'vod movies (in)','vod comedy','vod documentary','vod kids','vod series','vod action',
-    'vod horror','vod thriller','vod romance','vod sci-fi','vod fantasy','vod drama',
-    'vod anime','vod reality','vod western','vod classic','vod musical',
-    'vod family','vod crime','vod mystery','vod war','vod history',
-    'vod biography','vod short','vod film','vod music','vod sport',
-    'usa vod','italy vod','spain vod','france vod','germany vod',
-    'mexico vod','brazil vod','argentina vod','latin america vod',
 }
 GROUP_CONSOLIDATIONS = {
     'auto':'Lifestyle','cooking':'Lifestyle','travel':'Lifestyle','shop':'Lifestyle','relax':'Lifestyle',
     'science':'Education','weather':'News','animation':'Kids','family':'Kids',
     'classic':'Entertainment','legislative':'General',
 }
+REJECT_GROUPS = {
+    'auto','cooking','travel','shop','relax','science','weather','animation','family',
+    'classic','legislative',
+}
 EXTRA_CHANNELS = [
     {'name':'KGW 8 News Portland','id':'KGWDT1.us','logo':'','group':'Local News','language':'English',
      'url':'https://livevideo01.kgw.com/hls/live/2015506/elvs/live.m3u8','raw_name':'KGW 8 News Portland','source':'manual'},
 ]
-
-def tvg_lang(tvg_id):
-    if not tvg_id: return ''
-    at = tvg_id.rfind('@')
-    if at == -1: return ''
-    s = tvg_id[at+1:].lower()
-    lm={'english':'English','en':'English','spanish':'Spanish','es':'Spanish','french':'French','fr':'French',
-        'chinese':'Chinese','zh':'Chinese','korean':'Korean','ko':'Korean','arabic':'Arabic','ar':'Arabic',
-        'hindi':'Hindi','hi':'Hindi','portuguese':'Portuguese','pt':'Portuguese','german':'German','de':'German',
-        'italian':'Italian','it':'Italian','japanese':'Japanese','ja':'Japanese','russian':'Russian','ru':'Russian',
-        'vietnamese':'Vietnamese','vi':'Vietnamese','tagalog':'Tagalog','tl':'Tagalog','polish':'Polish','pl':'Polish',
-        'dutch':'Dutch','nl':'Dutch','turkish':'Turkish','tr':'Turkish','greek':'Greek','el':'Greek',
-        'hebrew':'Hebrew','he':'Hebrew','persian':'Persian','fa':'Persian'}
-    return lm.get(s,'')
-
-def is_english_tvg(tvg_id):
-    return tvg_lang(tvg_id) == 'English'
 
 def consolidate_group(g):
     if not g: return 'General'
@@ -79,7 +37,6 @@ def consolidate_group(g):
     if not p or p.lower() == 'undefined': return 'General'
     pl = p.lower()
     if pl in REJECT_GROUPS: return None
-    if pl in VOD_GROUPS: return VOD_GROUPS[pl]
     if pl not in KEEP_GROUPS: return 'International'
     return GROUP_CONSOLIDATIONS.get(pl, p.title())
 
@@ -89,7 +46,7 @@ def fetch_m3u(url):
         cs = r.headers.get_content_charset() or 'utf-8'
         return r.read().decode(cs, errors='replace').replace('\r\n','\n').replace('\r','\n')
 
-def parse_m3u(content, src_name):
+def parse_m3u(content):
     chs = []
     lines = content.split('\n')
     i = 0
@@ -108,21 +65,21 @@ def parse_m3u(content, src_name):
             tvg_id, tvg_logo, raw_grp = m(r'tvg-id="([^"]*)"'), m(r'tvg-logo="([^"]*)"'), m(r'group-title="([^"]*)"')
             clean = re.sub(r'\s*\(\d{3,4}[ip]\)\s*','',name)
             clean = re.sub(r'\s*\[[^\]]+\]\s*','',clean).strip()
-
-            # Free-TV: only accept if in KEEP group OR has English tvg-id suffix
-            if 'free-tv' in src_name.lower():
-                in_keep = raw_grp and raw_grp.lower() in KEEP_GROUPS
-                has_en_tvg = is_english_tvg(tvg_id)
-                if not in_keep and not has_en_tvg:
-                    i = j if j>i else i+1; continue
-                group = consolidate_group(raw_grp) if raw_grp else 'General'
-                if group is None: i=j if j>i else i+1; continue
-            else:
-                group = consolidate_group(raw_grp) if raw_grp else 'General'
-                if group is None: i=j if j>i else i+1; continue
-
-            lang = tvg_lang(tvg_id)
-            chs.append({'name':clean,'id':tvg_id,'logo':tvg_logo,'group':group,'language':lang,'url':url,'raw_name':name,'source':src_name})
+            group = consolidate_group(raw_grp) if raw_grp else 'General'
+            if group is None: i=j if j>i else i+1; continue
+            lang = ''
+            at = tvg_id.rfind('@')
+            if at!=-1:
+                s = tvg_id[at+1:].lower()
+                lm={'english':'English','en':'English','spanish':'Spanish','es':'Spanish','french':'French','fr':'French',
+                    'chinese':'Chinese','zh':'Chinese','korean':'Korean','ko':'Korean','arabic':'Arabic','ar':'Arabic',
+                    'hindi':'Hindi','hi':'Hindi','portuguese':'Portuguese','pt':'Portuguese','german':'German','de':'German',
+                    'italian':'Italian','it':'Italian','japanese':'Japanese','ja':'Japanese','russian':'Russian','ru':'Russian',
+                    'vietnamese':'Vietnamese','vi':'Vietnamese','tagalog':'Tagalog','tl':'Tagalog','polish':'Polish','pl':'Polish',
+                    'dutch':'Dutch','nl':'Dutch','turkish':'Turkish','tr':'Turkish','greek':'Greek','el':'Greek',
+                    'hebrew':'Hebrew','he':'Hebrew','persian':'Persian','fa':'Persian'}
+                lang = lm.get(s,'')
+            chs.append({'name':clean,'id':tvg_id,'logo':tvg_logo,'group':group,'language':lang,'url':url})
             i = j if j>i else i+1
         else: i+=1
     return chs
@@ -131,15 +88,6 @@ def is_english(ch):
     return ch.get('language','') not in {'Spanish','French','German','Italian','Portuguese','Chinese','Korean',
         'Hindi','Arabic','Japanese','Russian','Vietnamese','Tagalog','Polish','Dutch','Turkish',
         'Greek','Hebrew','Persian','Unknown'}
-
-def validate(ch):
-    try:
-        req = urllib.request.Request(ch['url'], headers={'User-Agent': 'Mozilla/5.0'}, method='HEAD')
-        with urllib.request.urlopen(req, timeout=6) as r:
-            return r.status in (200,206,301,302,303,304)
-    except urllib.error.HTTPError as e:
-        return e.code not in (403,404,500,502,503)
-    except: return False
 
 def write_m3u(chs, fn):
     with open(fn,'w',encoding='utf-8') as f:
@@ -176,54 +124,16 @@ def gen_epg(chs):
             bs+=timedelta(hours=3)
     return tv
 
-print("="*60)
-all_raw=[]
-for src in SOURCES:
-    print(f"Fetching [{src['name']}]... ",end='',flush=True)
-    try:
-        content=fetch_m3u(src['url'])
-        chs=parse_m3u(content,src['name'])
-        print(f"{len(chs)} channels")
-        all_raw.extend([(c,src['name']) for c in chs])
-    except Exception as e:
-        print(f"FAILED ({e})")
-
-total_raw=len(all_raw)
-print(f"\nTotal raw (after Free-TV filter): {total_raw}")
-
-pri = {'iptv-org US': 0, 'iptv-org English': 1, 'Free-TV': 2}
+content = fetch_m3u(SOURCE_URL)
+raw = parse_m3u(content)
 seen={}
-for ch,sn in all_raw:
-    p=pri.get(sn,2)
-    if ch['url'] not in seen or p < seen[ch['url']]['pri']:
-        seen[ch['url']]={'ch':ch,'pri':p}
-deduped=[v['ch'] for v in seen.values()]
-print(f"After URL dedup: {len(deduped)}")
-
-n_en=len(deduped)
+for c in raw:
+    if c['url'] not in seen: seen[c['url']]=c
+deduped=list(seen.values())
 deduped=[c for c in deduped if is_english(c)]
-print(f"English-language: {n_en} -> {len(deduped)}")
-
-print(f"\nValidating {len(deduped)} streams ({MAX_WORKERS} workers)...")
-valid,failed=[],[]
-with concurrent.futures.ThreadPoolExecutor(max_workers=MAX_WORKERS) as ex:
-    futs={ex.submit(validate,c):c for c in deduped}
-    for fut in concurrent.futures.as_completed(futs):
-        if fut.result(): valid.append(futs[fut])
-        else: failed.append(futs[fut])
-print(f"Passed: {len(valid)}, Failed (VPN-blocked): {len(failed)}")
-deduped=valid
-
-fm={}
-for c in deduped:
-    if c['url'] not in fm: fm[c['url']]=c
-deduped=list(fm.values())
-
 eu={c['url'] for c in deduped}
-added=[]
 for ec in EXTRA_CHANNELS:
-    if ec['url'] not in eu: deduped.append(ec); eu.add(ec['url']); added.append(ec['name'])
-if added: print(f"Added extras: {', '.join(added)}")
+    if ec['url'] not in eu: deduped.append(ec)
 
 def sk(c):
     g=c['group'].lower()
@@ -234,22 +144,11 @@ def sk(c):
 deduped.sort(key=sk)
 
 write_m3u(deduped,OUTPUT_PLAYLIST)
-print(f"Wrote {OUTPUT_PLAYLIST}")
 tv=gen_epg(deduped)
 with open(OUTPUT_EPG,'wb') as f:
     f.write(b'<?xml version="1.0" encoding="UTF-8"?>\n')
     ET.ElementTree(tv).write(f,encoding='utf-8',xml_declaration=False)
-print(f"Wrote {OUTPUT_EPG}")
 
 groups=Counter(c['group'] for c in deduped)
-print(f"\nGroups ({len(groups)}):")
 for g,cnt in groups.most_common(): print(f"  {g}: {cnt}")
-
-multi=sum(1 for c in deduped if ';' in c.get('group',''))
-print(f"\nMulti-group entries: {multi}")
-print(f"\n{'='*60}")
-print(f"Total raw: {total_raw}")
-print(f"Final channels: {len(deduped)}")
-print(f"Playlist: https://CeresLabX.github.io/us-tv/{OUTPUT_PLAYLIST}")
-print(f"EPG:      https://CeresLabX.github.io/us-tv/{OUTPUT_EPG}")
-print(f"{'='*60}")
+print(f"\nFinal: {len(deduped)} channels")
