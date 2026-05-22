@@ -1,29 +1,17 @@
-Stream Validation Log — 2026-05-21
-===================================
+Stream validation log — 2026-05-21 20:38:06
+==================================================
 
-KGW 8 News Portland
-  tvg-id:    KGWDT1.us
-  URL:       https://livevideo01.kgw.com/hls/live/2015506/elvs/live.m3u8
-  Method:    curl -I -L
-  Result:    PASS — HTTP/2 200, content-type: application/x-mpegURL
-  Action:    ADDED (new channel)
+[CHECK] KGW 8 News Portland
+  URL: https://livevideo01.kgw.com/hls/live/2015506/elvs/live.m3u8
+  Status: HTTP/2 200 
+  Result: PASS
 
-KATU News Portland
-  tvg-id:    KATUDT1.us
-  URL:       https://linear-710.frequency.stream/dist/stirr/710/hls/master/playlist.m3u8
-  Method:    duplicate check
-  Result:    SKIPPED — URL already exists in playlist (KATU321.us@HD)
-  Action:    NONE (duplicate)
+[CHECK] KATU News Portland
+  URL: https://linear-710.frequency.stream/dist/stirr/710/hls/master/playlist.m3u8
+  Status: HTTP/2 200 
+  Result: PASS
 
-KIRO 7 News Seattle
-  tvg-id:    KIRODT1.us
-  URL:       https://cdn-ue1-prod.tsv2.amagi.tv/linear/amg00327-coxmediagroup-kirobreaking-ono/playlist.m3u8
-  Method:    duplicate check
-  Result:    SKIPPED — URL already exists in playlist (KIROTV71.us@HD)
-  Action:    NONE (duplicate)
-
-Summary
-=======
-Added:     1 (KGW 8 News Portland)
-Skipped:   2 (KATU News Portland, KIRO 7 News Seattle — already in playlist)
-Failed:    0
+[CHECK] KIRO 7 News Seattle
+  URL: https://cdn-ue1-prod.tsv2.amagi.tv/linear/amg00327-coxmediagroup-kirobreaking-ono/playlist.m3u8
+  Status: HTTP/2 302 
+  Result: PASS
