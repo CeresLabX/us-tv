@@ -347,9 +347,11 @@ print(f"Removed International: {before_intl - len(deduped)}")
 # Key = tvg-id (must match exactly). Value = group name to enforce.
 # This persists across all auto-refreshes.
 GROUP_OVERRIDES = {
-    'KGWDT1.us':     'Local News',  # KGW 8 News Portland
+    'KGWDT1.us':      'Local News',  # KGW 8 News Portland
     'KIROTV71.us@HD': 'Local News',  # KIRO-DT1 Seattle
     'KATU321.us@HD':  'Local News',  # ABC 2 Portland OR (KATU)
+    'KOMOTV511.us@HD': 'Local News',  # ABC 4 Seattle WA (KOMO)
+    'KCPQ131.us@HD':  'Local News',  # FOX 13 Seattle WA (KCPQ)
 }
 
 def apply_group_overrides(chs):
