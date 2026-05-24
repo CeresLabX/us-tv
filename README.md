@@ -22,7 +22,7 @@ General, News, Sports, Entertainment, Movies, Series, Kids, Religious, Lifestyle
 
 ---
 
-## Usage in TiMATE
+## Usage in TiviMate
 
 1. Add playlist: `https://CeresLabX.github.io/us-tv/playlist.m3u`
 2. Add EPG: `https://CeresLabX.github.io/us-tv/epg.xml`
@@ -33,7 +33,7 @@ General, News, Sports, Entertainment, Movies, Series, Kids, Religious, Lifestyle
 
 Playlist and EPG regenerate every 12 hours via GitHub Actions (`update.yml` workflow).
 
-Programme schedules are placeholder (3-hour blocks). This gives channel names, logos, and categories in TiMATE.
+Programme schedules are placeholder (3-hour blocks). This gives channel names, logos, and categories in TiviMate.
 
 ---
 
