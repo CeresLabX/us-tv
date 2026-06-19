@@ -295,6 +295,8 @@ https://amc-absolutereality-1-us.plex.wurl.tv/playlist.m3u8
 https://alt-al.otteravision.com/alt/al/al.m3u8
 #EXTINF:-1 tvg-id="AsianCrush.us@SD" tvg-logo="https://i.imgur.com/hW6z1RG.png" group-title="Entertainment",AsianCrush
 https://linear-900.frequency.stream/dist/cineverse/900/hls/master/playlist.m3u8
+#EXTINF:-1 tvg-id="BBCAmerica.us@East" tvg-logo="https://i.imgur.com/pTiiPz0.png" group-title="Entertainment",BBC America
+http://23.239.31.26:8989/bbcamerica/index.m3u8
 #EXTINF:-1 tvg-id="BounceXL.us@SD" tvg-logo="https://i.imgur.com/GzxgSkc.png" group-title="Entertainment",Bounce XL
 https://cdn-uw2-prod.tsv2.amagi.tv/linear/amg01438-ewscrippscompan-bouncexl-tablo/playlist.m3u8
 #EXTINF:-1 tvg-id="Buzzr.us@SD" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Buzzr_logo.svg/960px-Buzzr_logo.svg.png" group-title="Entertainment",Buzzr
@@ -325,8 +327,6 @@ https://estrella-games-oando.amagi.tv/playlist.m3u8
 https://estrellatv-oando.amagi.tv/playlist.m3u8
 #EXTINF:-1 tvg-id="FX.us@East" tvg-logo="https://i.imgur.com/ZScwrpi.png" group-title="Entertainment",FX
 http://23.237.104.106:8080/USA_FX/index.m3u8
-#EXTINF:-1 tvg-id="FXX.us@East" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/FXX_Logo.svg/960px-FXX_Logo.svg.png" group-title="Entertainment",FXX
-https://cdn.telecloud.tv/CH3255/index.m3u8
 #EXTINF:-1 tvg-id="FideleTV.us@SD" tvg-logo="https://i.ibb.co/YtBZ0Lc/FIDELE-TV.png" group-title="Entertainment",Fidele TV
 https://59d39900ebfb8.streamlock.net/FIDELETV/FIDELETV/playlist.m3u8
 #EXTINF:-1 tvg-id="Fuse.us@East" tvg-logo="https://i.imgur.com/mijRpPQ.jpg" group-title="Entertainment",Fuse
@@ -927,6 +927,8 @@ https://mediaserver.abnvideos.com/streams/abnbiblemovies.m3u8
 http://23.239.31.26:8989/amc/index.m3u8
 #EXTINF:-1 tvg-id="AmericanHorrors.us@SD" tvg-logo="https://image.roku.com/developer_channels/prod/16f5571a82819e8992a748c70b256cbe63105f4b546b73d129668dc2cb701d91.png" group-title="Movies",American Horrors
 http://107.167.7.162:8081/playlist/amhor/playlist.m3u8
+#EXTINF:-1 tvg-id="B4UMovies.in@USA" tvg-logo="https://i.imgur.com/M9kMFJl.png" group-title="Movies",B4U Movies USA
+http://41.223.30.230/B4UPLUS/index.m3u8
 #EXTINF:-1 tvg-id="Charge.us@SD" tvg-logo="https://i.imgur.com/1rxmu2u.png" group-title="Movies",Charge!
 https://fast-channels.sinclairstoryline.com/CHARGE/index.m3u8
 #EXTINF:-1 tvg-id="CineSony.us@SD" tvg-logo="https://i.imgur.com/bZWoDTg.png" group-title="Movies",Cine Sony
@@ -1048,23 +1050,25 @@ https://aegis-cloudfront-1.tubi.video/b77ffe96-c5d1-43a7-8687-306ff244d725/playl
 #EXTINF:-1 tvg-id="WFTV91.us@HD" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/2/27/WWAY_logo.png" group-title="News",ABC 9 Orlando FL (WFTV)
 https://amg00327-coxmediagroup-wftvbreaking-ono-hec7b.amagi.tv/playlist/amg00327-coxmediagroup-wftvbreaking-ono/playlist.m3u8
 #EXTINF:-1 tvg-id="ABCNewsLive1.us@SD" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/ABC_News_Live_logo_2021.svg/960px-ABC_News_Live_logo_2021.svg.png" group-title="News",ABC News Live 1
-https://abcnews-streams.akamaized.net/hls/live/2023560/abcnewshudson1/master_4000.m3u8
+https://abcnews-streams.akamaized.net/hls/live/2023560/abcnewshudson1/master.m3u8
 #EXTINF:-1 tvg-id="ABCNewsLive10.us@SD" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/ABC_News_Live_logo_2021.svg/960px-ABC_News_Live_logo_2021.svg.png" group-title="News",ABC News Live 10
-https://abcnews-streams.akamaized.net/hls/live/2023569/abcnewshudson10/master_4000.m3u8
+https://abcnews-streams.akamaized.net/hls/live/2023569/abcnewshudson10/master.m3u8
 #EXTINF:-1 tvg-id="ABCNewsLive2.us@SD" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/ABC_News_Live_logo_2021.svg/960px-ABC_News_Live_logo_2021.svg.png" group-title="News",ABC News Live 2
-https://abcnews-streams.akamaized.net/hls/live/2023561/abcnewshudson2/master_4000.m3u8
+https://abcnews-streams.akamaized.net/hls/live/2023561/abcnewshudson2/master.m3u8
 #EXTINF:-1 tvg-id="ABCNewsLive3.us@SD" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/ABC_News_Live_logo_2021.svg/960px-ABC_News_Live_logo_2021.svg.png" group-title="News",ABC News Live 3
-https://abcnews-streams.akamaized.net/hls/live/2023562/abcnewshudson3/master_4000.m3u8
+https://abcnews-streams.akamaized.net/hls/live/2023562/abcnewshudson3/master.m3u8
 #EXTINF:-1 tvg-id="ABCNewsLive4.us@SD" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/ABC_News_Live_logo_2021.svg/960px-ABC_News_Live_logo_2021.svg.png" group-title="News",ABC News Live 4
-https://abcnews-streams.akamaized.net/hls/live/2023563/abcnewshudson4/master_4000.m3u8
+https://abcnews-streams.akamaized.net/hls/live/2023563/abcnewshudson4/master.m3u8
 #EXTINF:-1 tvg-id="ABCNewsLive5.us@SD" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/ABC_News_Live_logo_2021.svg/960px-ABC_News_Live_logo_2021.svg.png" group-title="News",ABC News Live 5
-https://abcnews-streams.akamaized.net/hls/live/2023564/abcnewshudson5/master_4000.m3u8
+https://abcnews-streams.akamaized.net/hls/live/2023564/abcnewshudson5/master.m3u8
 #EXTINF:-1 tvg-id="ABCNewsLive6.us@SD" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/ABC_News_Live_logo_2021.svg/960px-ABC_News_Live_logo_2021.svg.png" group-title="News",ABC News Live 6
-https://abcnews-streams.akamaized.net/hls/live/2023565/abcnewshudson6/master_4000.m3u8
+https://abcnews-streams.akamaized.net/hls/live/2023565/abcnewshudson6/master.m3u8
 #EXTINF:-1 tvg-id="ABCNewsLive7.us@SD" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/ABC_News_Live_logo_2021.svg/960px-ABC_News_Live_logo_2021.svg.png" group-title="News",ABC News Live 7
-https://abcnews-streams.akamaized.net/hls/live/2023566/abcnewshudson7/master_4000.m3u8
+https://abcnews-streams.akamaized.net/hls/live/2023566/abcnewshudson7/master.m3u8
 #EXTINF:-1 tvg-id="ABCNewsLive8.us@SD" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/ABC_News_Live_logo_2021.svg/960px-ABC_News_Live_logo_2021.svg.png" group-title="News",ABC News Live 8
-https://abcnews-streams.akamaized.net/hls/live/2023567/abcnewshudson8/master_4000.m3u8
+https://abcnews-streams.akamaized.net/hls/live/2023567/abcnewshudson8/master.m3u8
+#EXTINF:-1 tvg-id="ABCNewsLive9.us@SD" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/ABC_News_Live_logo_2021.svg/960px-ABC_News_Live_logo_2021.svg.png" group-title="News",ABC News Live 9
+https://abcnews-streams.akamaized.net/hls/live/2023568/abcnewshudson9/master.m3u8
 #EXTINF:-1 tvg-id="WWAY31.us@HD" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/2/27/WWAY_logo.png" group-title="News",ABC WWAY 3
 https://townnews.g-mana.live/media/027a05c7-43b6-49eb-ad10-a0c0f10a0754/main.m3u8
 #EXTINF:-1 tvg-id="AlhurraIraq.us@SD" tvg-logo="https://i.imgur.com/fsgQDcN.png" group-title="News",Alhurra Iraq
@@ -1108,7 +1112,7 @@ https://media.streambrothers.com:1936/8276/8276/playlist.m3u8
 #EXTINF:-1 tvg-id="EstrellaNews.us@SD" tvg-logo="https://i.imgur.com/HRrkhLq.png" group-title="News",Estrella News
 https://estrella-news-oando.amagi.tv/playlist.m3u8
 #EXTINF:-1 tvg-id="FoxNewsChannel.us@SD" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Fox_News_Channel_logo.svg/960px-Fox_News_Channel_logo.svg.png" group-title="News",Fox News Channel
-http://41.205.93.154/FOX-NEWS/index.m3u8
+http://138.121.15.230:9002/FOX-NEWS/index.m3u8
 #EXTINF:-1 tvg-id="FoxNewsRadio.us@SD" tvg-logo="https://radio.foxnews.com/wp-content/uploads/2017/10/default_logo-150x150.png" group-title="News",Fox News Radio
 https://radiovid.foxnews.com/hls/live/661547/RADIOVID/index.m3u8
 #EXTINF:-1 tvg-id="FreeSpeechTV.us@SD" tvg-logo="https://i.imgur.com/Qq6heRq.png" group-title="News",Free Speech TV
