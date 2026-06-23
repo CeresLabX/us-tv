@@ -31,8 +31,6 @@ https://amg12058-c15studio-amg12058c1-lg-us-5787.playouts.now.amagi.tv/playlist.
 https://d3ehq1uaxory6w.cloudfront.net/out/v1/35c05f080f4e49a4b4eb031b5a14e505/TVG2index_2.m3u8
 #EXTINF:-1 tvg-id="FanDuelTV.us@SD" tvg-logo="https://i.imgur.com/YPHrFU0.png" group-title="Sports",FanDuel TV
 https://d2jl8r92tdc3f1.cloudfront.net/out/v1/59419700344b4625b7cb0693ba265ea3/TVGindex_1.m3u8
-#EXTINF:-1 tvg-id="FoxSports1.us@HD" tvg-logo="https://i.imgur.com/O9BapV9.png" group-title="Sports",Fox Sports 1
-https://cors-proxy.cooks.fyi/http://190.11.225.124:5000/live/fs1_hd/playlist.m3u8
 #EXTINF:-1 tvg-id="FoxSports2.us@HD" tvg-logo="https://i.imgur.com/LHtxKI8.png" group-title="Sports",Fox Sports 2
 https://tvsen7.aynaott.com/foxsports2/index.m3u8
 #EXTINF:-1 tvg-id="KCMNLD426.us@SD" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/QVC_logo_2019.svg/960px-QVC_logo_2019.svg.png" group-title="Sports",KCMN-LD6
@@ -651,6 +649,8 @@ https://cdn-uw2-prod.tsv2.amagi.tv/linear/amg00488-foxdigital-fox11losangelesktt
 https://streaming-live-fcdn.api.prd.univisionnow.com/kuvn/kuvn.isml/hls/kuvn.m3u8
 #EXTINF:-1 tvg-id="KZTV101.us@HD" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/CBS_logo_%282020%29.svg/960px-CBS_logo_%282020%29.svg.png" group-title="General",KZTV-DT1
 https://content.uplynk.com/channel/d1f868588ae5476dadaeff450170a183.m3u8
+#EXTINF:-1 tvg-id="LBCInternational.lb@SD" tvg-logo="https://i.imgur.com/h26xtUv.png" group-title="General",LBC International
+http://185.9.2.18/chid_327/index.m3u8
 #EXTINF:-1 tvg-id="LPTV.us@SD" tvg-logo="https://i.imgur.com/d5w2pT4.png" group-title="General",LPTV
 https://livestream.telvue.com/lexmedia1/f7b44cfafd5c52223d5498196c8a2e7b.sdp/lexmedia1/stream1/playlist.m3u8
 #EXTINF:-1 tvg-id="CityTVLakewood.us@SD" tvg-logo="https://i.imgur.com/e1shzv9.png" group-title="General",Lakewood CityTV
@@ -783,6 +783,8 @@ https://agp-nimble.streamguys1.com/SLOC/SLOC/playlist.m3u8
 https://pb-olm46bexcljjf.akamaized.net/Samsung_Wild_Life.m3u8
 #EXTINF:-1 tvg-id="SMCTVChannel25.us@SD" tvg-logo="https://i.imgur.com/5jBOsTc.png" group-title="General",Santa Maria Community Television Public Access Channel
 https://livestream.telvue.com/santamariactv3/f7b44cfafd5c52223d5498196c8a2e7b.sdp/playlist.m3u8
+#EXTINF:-1 tvg-id="SemillitasTV.us@SD" tvg-logo="https://i.imgur.com/u3yujUd.png" group-title="General",Semillitas TV
+http://45.5.117.99:8000/play/a0g3/index.m3u8
 #EXTINF:-1 tvg-id="ShoutFactoryTV.us@SD" tvg-logo="https://i.imgur.com/AgoGr6y.png" group-title="General",Shout! TV
 https://d1s1wrpgemt9re.cloudfront.net/Shout_TV.m3u8
 #EXTINF:-1 tvg-id="SonyKALHindi.us@SD" tvg-logo="https://i.imgur.com/9Qq8DKh.png" group-title="General",Sony KAL Hindi
@@ -889,6 +891,8 @@ https://cdn-ue1-prod.tsv2.amagi.tv/linear/amg00327-coxmediagroup-wpxibreaking-on
 https://cdn-ue1-prod.tsv2.amagi.tv/linear/amg00327-coxmediagroup-wsbbreakingnews-ono/playlist.m3u8
 #EXTINF:-1 tvg-id="WSBSTV221.us@HD" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/1/18/MegaTV.png" group-title="General",WSBS-DT1
 https://mdstrm.com/live-stream-playlist/67ed74e8af482ba71d47fd7b.m3u8
+#EXTINF:-1 tvg-id="WSLFLD351.us@HD" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Daystar_(2008%E2%80%93present)_unmodified_logo.svg/960px-Daystar_(2008%E2%80%93present)_unmodified_logo.svg.png" group-title="General",WSLF-LD 35.1
+https://content.uplynk.com/channel/1992858a34c3423dbdad491d07ae6f75.m3u8
 #EXTINF:-1 tvg-id="WSOCTV91.us@HD" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/2/27/WWAY_logo.png" group-title="General",WSOC-DT1
 https://cdn-ue1-prod.tsv2.amagi.tv/linear/amg00327-coxmediagroup-wsocbreaking-ono/playlist.m3u8
 #EXTINF:-1 tvg-id="WTNH81.us@HD" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/2/27/WWAY_logo.png" group-title="General",WTNH-DT1
