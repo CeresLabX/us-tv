@@ -46,7 +46,7 @@ http://85.237.89.160:9590/usa-s/FOX-SPORTS-1/index.m3u8
 #EXTINF:-1 tvg-id="FoxSports2.us@HD" tvg-logo="https://i.imgur.com/LHtxKI8.png" group-title="Sports",Fox Sports 2
 https://streamvidex.qzz.io/videx/fox2usa/index.m3u8
 #EXTINF:-1 tvg-id="GolfChannel.us@SD" tvg-logo="https://i.imgur.com/Lgux6Ik.png" group-title="Sports",Golf Channel
-http://23.237.104.106:8080/USA_GOLF/index.m3u8
+https://gpuserver3.tier1streams.com/GOLF_CHANNEL/index.m3u8
 #EXTINF:-1 tvg-id="KCMNLD426.us@SD" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/QVC_logo_2019.svg/960px-QVC_logo_2019.svg.png" group-title="Sports",KCMN-LD6
 https://cdn-uw2-prod.tsv2.amagi.tv/linear/amg02873-kravemedia-mtrspt1-distrotv/playlist.m3u8
 #EXTINF:-1 tvg-id="LacrosseTV.us@SD" tvg-logo="https://yt3.googleusercontent.com/ytc/AIdro_m_xSJFydxZ9QBU-85OuchjmzS0Bo0_Tukmk7to8hBfyl8=s512-c-k-c0x00ffffff-no-rj" group-title="Sports",Lacrosse TV
@@ -161,8 +161,10 @@ https://streamer1.streamhost.org/salive/logoskidsH/playlist.m3u8
 https://shd-gcp-live.edgenextcdn.net/live/bitmovin-mbc-3-usa/5d58265a862a476dc7f97694addb5ded/index.m3u8
 #EXTINF:-1 tvg-id="NickJr.us@East" tvg-logo="https://i.imgur.com/KT4tdQs.png" group-title="Kids",Nick Jr.
 http://40.160.24.55/NICK_JR/index.m3u8
+#EXTINF:-1 tvg-id="NickJr.us@West" tvg-logo="https://i.imgur.com/KT4tdQs.png" group-title="Kids",Nick Jr. West
+https://sra72yz.s.gy/NICK_JR_WEST_US
 #EXTINF:-1 tvg-id="Nickelodeon.us@West" tvg-logo="https://i.imgur.com/E84jnP8.png" group-title="Kids",Nickelodeon West
-http://108.181.20.255:27347/livehttpplay?channel_id=23019
+https://sra72yz.s.gy/NICK_WEST_US
 #EXTINF:-1 tvg-id="Nicktoons.us@East" tvg-logo="https://images.pluto.tv/channels/654ca7f92c1d3300086b608c/colorLogoPNG_1751457678592.png" group-title="Kids",Nicktoons
 http://206.212.244.63/3151/index.m3u8
 #EXTINF:-1 tvg-id="Nicktoons.us@West" tvg-logo="https://images.pluto.tv/channels/654ca7f92c1d3300086b608c/colorLogoPNG_1751457678592.png" group-title="Kids",Nicktoons West
@@ -461,8 +463,12 @@ https://estrella-games-oando.amagi.tv/playlist.m3u8
 https://estrellatv-oando.amagi.tv/playlist.m3u8
 #EXTINF:-1 tvg-id="FX.us@East" tvg-logo="https://i.imgur.com/ZScwrpi.png" group-title="Entertainment",FX
 http://23.237.104.106:8080/USA_FX/index.m3u8
+#EXTINF:-1 tvg-id="FX.us@West" tvg-logo="https://i.imgur.com/ZScwrpi.png" group-title="Entertainment",FX West
+https://sra72yz.s.gy/fx-west
 #EXTINF:-1 tvg-id="FXX.us@East" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/FXX_Logo.svg/960px-FXX_Logo.svg.png" group-title="Entertainment",FXX
 http://23.237.104.106:8080/USA_FXX/index.m3u8
+#EXTINF:-1 tvg-id="FXX.us@West" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/FXX_Logo.svg/960px-FXX_Logo.svg.png" group-title="Entertainment",FXX West
+https://sra72yz.s.gy/fxx-west
 #EXTINF:-1 tvg-id="FideleTV.us@SD" tvg-logo="https://i.ibb.co/YtBZ0Lc/FIDELE-TV.png" group-title="Entertainment",Fidele TV
 https://59d39900ebfb8.streamlock.net/FIDELETV/FIDELETV/playlist.m3u8
 #EXTINF:-1 tvg-id="Fuse.us@East" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/c/c2/Fuse_Black_Logo_2017.png" group-title="Entertainment",Fuse
@@ -771,10 +777,6 @@ http://stream.cammonitorplus.net/1752/index.m3u8
 https://pubads.g.doubleclick.net/ssai/event/1kItNgwtQUe54NjjBiiTGg/master.m3u8
 #EXTINF:-1 tvg-id="Fox.us@West" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Fox_Networks_Group_US_logo.svg/960px-Fox_Networks_Group_US_logo.svg.png" group-title="General",Fox West
 http://stream.cammonitorplus.net/1799/index.m3u8
-#EXTINF:-1 tvg-id="Galavision.us@East" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/Galavision_Logo_2013.svg/960px-Galavision_Logo_2013.svg.png" group-title="General",Galavision
-http://108.181.20.255:27347/livehttpplay?channel_id=23090
-#EXTINF:-1 tvg-id="Galavision.us@West" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/Galavision_Logo_2013.svg/960px-Galavision_Logo_2013.svg.png" group-title="General",Galavision West
-http://108.181.20.255:27347/livehttpplay?channel_id=23091
 #EXTINF:-1 tvg-id="GanjeHozourTV.us@SD" tvg-logo="https://i.imgur.com/TnQYtKh.png" group-title="General",Ganj e Hozour TV
 https://media.parvizshahbazi.com/ganjehozour/Main_tv/playlist.m3u8
 #EXTINF:-1 tvg-id="GillettePublicAccessTelevisionChannel190.us@SD" tvg-logo="https://yt3.googleusercontent.com/ytc/AGIKgqMoPQ32FU8R2lR71LXhYrC3tCHfjJEXcm6E9PEO=s176-c-k-c0x00ffffff-no-rj" group-title="General",Gillette Public Access Television Channel 190
@@ -926,7 +928,7 @@ https://livestream.telvue.com/phillycam1/f7b44cfafd5c52223d5498196c8a2e7b.sdp/pl
 #EXTINF:-1 tvg-id="PCTV28.us@SD" tvg-logo="https://i.imgur.com/WahZg3L.png" group-title="General",Pinole Community Television (PCTV) Channel 28 (Pinole CA)
 https://cdn3.wowza.com/5/cXdyRHF0Z3kxN0k2/pinole/G0032_002/playlist.m3u8
 #EXTINF:-1 tvg-id="PixLTV.us@SD" tvg-logo="https://i.imgur.com/ysRh3Nl.png" group-title="General",PixL TV
-https://frndlymsl.akamaized.net/hls/live/2006426/pixlmsl/pixlmsl/playlist.m3u8?hdnts=st=1606053234~exp=3216054041~acl=*~hmac=208d261d9f98d76a5ac30aa2ce51751f88ee50cfc24812b7cbea8b0397489a07
+http://40.160.24.55/PIXL/index.m3u8
 #EXTINF:-1 tvg-id="Portlandia.us@SD" tvg-logo="https://i.imgur.com/I4KDvu9.png" group-title="General",Portlandia
 https://d1uvnirn6lhs2f.cloudfront.net/playlist.m3u8
 #EXTINF:-1 tvg-id="PursuitChannel.us@SD" tvg-logo="https://upload.wikimedia.org/wikipedia/en/d/d6/Pursuit_Channel_logo.png" group-title="General",Pursuit Channel
@@ -980,7 +982,7 @@ https://cdn-uw2-prod.tsv2.amagi.tv/linear/amg00864-shemarooenterta-shemabollywoo
 #EXTINF:-1 tvg-id="ShoutFactoryTV.us@SD" tvg-logo="https://i.imgur.com/AgoGr6y.png" group-title="General",Shout! TV
 https://d1s1wrpgemt9re.cloudfront.net/Shout_TV.m3u8
 #EXTINF:-1 tvg-id="Showtime2.us@East" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Showtime.svg/960px-Showtime.svg.png" group-title="General",Showtime 2
-http://starlite.best/api/stream/hurt/hurt/livetv.epg/showtime.2.eastern.us.m3u8
+http://40.160.24.55/SHOWTIME_2/index.m3u8
 #EXTINF:-1 tvg-id="ShowtimeExtreme.us@East" tvg-logo="https://i.imgur.com/byJNJdm.png" group-title="General",Showtime Extreme
 http://40.160.24.55/SHOWTIME_EXTREME/index.m3u8
 #EXTINF:-1 tvg-id="ShowtimeNext.us@East" tvg-logo="https://i.imgur.com/1Ak2MX2.png" group-title="General",Showtime Next
@@ -995,6 +997,8 @@ https://livestream.telvue.com/soundviewcmt2/f7b44cfafd5c52223d5498196c8a2e7b.sdp
 http://40.160.24.55/STARZ_EDGE/index.m3u8
 #EXTINF:-1 tvg-id="StarzEncore.us@East" tvg-logo="https://i.imgur.com/5ieoKO1.png" group-title="General",Starz Encore
 http://40.160.24.55/STARZ_ENCORE/index.m3u8
+#EXTINF:-1 tvg-id="StarzEncore.us@West" tvg-logo="https://i.imgur.com/5ieoKO1.png" group-title="General",Starz Encore West
+https://sra72yz.s.gy/STARZ_ENCORE_WEST_US
 #EXTINF:-1 tvg-id="Starz.us@West" tvg-logo="https://i.imgur.com/N7oSm4d.png" group-title="General",Starz West
 http://40.160.24.55/STARZ_WEST/index.m3u8
 #EXTINF:-1 tvg-id="TBNArmenia.us@SD" tvg-logo="https://i.imgur.com/U5XsT3j.png" group-title="General",TBN Armenia
@@ -1037,14 +1041,10 @@ https://amg02507-giantpictures-tribeca-xumo-ey2b7.amagi.tv/playlist.m3u8
 https://amg00376-magellan-amg00376c12-samsung-au-1725.playouts.now.amagi.tv/playlist/amg00376-magellantv-truecrimenowaunzin-samsungau/playlist.m3u8
 #EXTINF:-1 tvg-id="TrueHistory.us@SD" tvg-logo="https://i.imgur.com/1BHDGXx.png" group-title="General",True History
 https://linear-188.frequency.stream/dist/glewedtv/188/hls/master/playlist.m3u8
-#EXTINF:-1 tvg-id="UniMas.us@East" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Logo_UniM%C3%A1s_2021.svg/960px-Logo_UniM%C3%A1s_2021.svg.png" group-title="General",UniMas
-http://108.181.20.255:27347/livehttpplay?channel_id=23094
 #EXTINF:-1 tvg-id="UniMas.us@Central" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Logo_UniM%C3%A1s_2021.svg/960px-Logo_UniM%C3%A1s_2021.svg.png" group-title="General",UniMas Central
 http://190.197.41.183/Unimas/mono.m3u8
 #EXTINF:-1 tvg-id="UniMas.us@Mountain" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Logo_UniM%C3%A1s_2021.svg/960px-Logo_UniM%C3%A1s_2021.svg.png" group-title="General",UniMas Mountain
 http://168.228.44.241:9997/play/a09e/index.m3u8
-#EXTINF:-1 tvg-id="UniMas.us@West" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Logo_UniM%C3%A1s_2021.svg/960px-Logo_UniM%C3%A1s_2021.svg.png" group-title="General",UniMas West
-http://108.181.20.255:27347/livehttpplay?channel_id=23093
 #EXTINF:-1 tvg-id="UpTV.us@SD" tvg-logo="https://i.imgur.com/AvR9LSn.png" group-title="General",Up TV
 http://40.160.24.55/Up_TV/index.m3u8
 #EXTINF:-1 tvg-id="VICETV.us@SD" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/Vice_TV_logo.svg/960px-Vice_TV_logo.svg.png" group-title="General",VICE TV
@@ -1278,7 +1278,7 @@ https://linear-73.frequency.stream/dist/24i/73/hls/master/playlist.m3u8
 #EXTINF:-1 tvg-id="SYFY.us@East" tvg-logo="https://i.imgur.com/4fMWhUE.png" group-title="Movies",SYFY
 https://gpuserver5.tier1streams.com/SYFY/index.m3u8
 #EXTINF:-1 tvg-id="SYFY.us@West" tvg-logo="https://i.imgur.com/4fMWhUE.png" group-title="Movies",SYFY West
-http://108.181.20.255:27347/livehttpplay?channel_id=23111
+https://sra72yz.s.gy/syfy-west
 #EXTINF:-1 tvg-id="ScaresbyShudder.us@SD" tvg-logo="https://www.bgr.com/bgr/entertainment/freevee-added-5-spooky-new-live-channels-just-in-time-for-halloween/Scares-by-Shudder.jpg" group-title="Movies",Scares by Shudder
 http://206.212.244.63/147/index.m3u8
 #EXTINF:-1 tvg-id="StarzCinema.us@East" tvg-logo="https://i.imgur.com/ghzzKoT.png" group-title="Movies",Starz Cinema
@@ -1287,6 +1287,10 @@ http://23.237.104.106:8080/USA_STARZ_CINEMA/index.m3u8
 http://40.160.24.55/SUNDANCE/index.m3u8
 #EXTINF:-1 tvg-id="TheFilmDetective.us@SD" tvg-logo="https://i.imgur.com/yfOwmsP.png" group-title="Movies",The Film Detective
 https://cinedigm-entertainment-corp-thefilmdetective-1-us.ono.wurl.tv/playlist.m3u8
+#EXTINF:-1 tvg-id="TheMovieChannel.us@West" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/The_Movie_Channel.svg/960px-The_Movie_Channel.svg.png" group-title="Movies",The Movie Channel West
+https://sra72yz.s.gy/THE_MOVIE_CHANNEL_WEST
+#EXTINF:-1 tvg-id="TheMovieChannelXtra.us@West" tvg-logo="https://i.imgur.com/J3qpQ8X.png" group-title="Movies",The Movie Channel Xtra West
+https://sra72yz.s.gy/THE_MOVIE_CHANNEL_XTRA_WEST
 #EXTINF:-1 tvg-id="UniversalCinema.us@SD" tvg-logo="https://i.imgur.com/XxfET68.png" group-title="Movies",Universal Cinema
 https://bantel-cdn1.iptvperu.tv:1936/btnscrtn/universalcinema/playlist.m3u8
 #EXTINF:-1 tvg-id="WatchitScream.us@SD" tvg-logo="https://i.imgur.com/bz3Caum.png" group-title="Movies",Watch it Scream!
