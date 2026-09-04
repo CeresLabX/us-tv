@@ -823,6 +823,8 @@ https://d39accvx65hq9o.cloudfront.net/Womens_Sports_Network.m3u8
 https://597865f6e4114.streamlock.net/live/leseaorigin.stream/playlist.m3u8
 #EXTINF:-1 tvg-id="YesNetwork.us@SD" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/YES_Network_logo.svg/960px-YES_Network_logo.svg.png" group-title="General",Yes Network
 http://23.237.104.106:8080/USA_YES_NETWORK/index.m3u8
+#EXTINF:-1 tvg-id="ZTV.us@SD" tvg-logo="https://zplay.cl/img/ztv.png" group-title="General",ZTV
+http://45.70.201.81:8000/play/a00u/index.m3u8
 #EXTINF:-1 tvg-id="30ALuxeLifeDiscovered.us@SD" tvg-logo="https://m.media-amazon.com/images/I/51FJ5A0mEyL.jpg" group-title="Lifestyle",30A Luxe Life Discovered
 https://30a-tv.com/feeds/vidaa/luxelife.m3u8
 #EXTINF:-1 tvg-id="AutenticTravel.de@SD" tvg-logo="https://d3b6luslimvglo.cloudfront.net/images/79/rlaxximages/channels-rescaled/icon-white/autentictravel_white.png" group-title="Lifestyle",Autentic Travel
@@ -865,6 +867,8 @@ https://mediaserver.abnvideos.com/streams/abnbiblemovies.m3u8
 http://41.205.93.154/AMC/index.m3u8
 #EXTINF:-1 tvg-id="AMC.us@East" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/AMC_logo_2019.svg/960px-AMC_logo_2019.svg.png" group-title="Movies",AMC East
 http://190.11.225.124:5000/live/amc_hd/playlist.m3u8
+#EXTINF:-1 tvg-id="AVIRewind.us@SD" tvg-logo="https://zplay.cl/LogosV2/AVIREWINDS_NEW.png" group-title="Movies",AVI Rewind
+http://45.70.201.81:8000/play/a010/index.m3u8
 #EXTINF:-1 tvg-id="AmericanHorrors.us@SD" tvg-logo="https://image.roku.com/developer_channels/prod/16f5571a82819e8992a748c70b256cbe63105f4b546b73d129668dc2cb701d91.png" group-title="Movies",American Horrors
 http://107.167.7.162:8081/playlist/amhor/playlist.m3u8
 #EXTINF:-1 tvg-id="Charge.us@SD" tvg-logo="https://i.imgur.com/ocs2DeU.png" group-title="Movies",Charge!
